@@ -9,6 +9,6 @@ stages:
   - name: deploy ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH} db
     steps:
     - applyYamlConfig:
-        path: ./mariadb/k8s-yaml/mariadb-deployment.yaml
+        path: ./mariadb/k8s-deploy/mariadb-deployment.yaml
     - applyYamlConfig:
-        path: ./mariadb/k8s-yaml/mariadb-service.yaml
+        path: ./mariadb/k8s-deploy/mariadb-service.yaml
