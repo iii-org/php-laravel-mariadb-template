@@ -1,0 +1,14 @@
+stages:
+  - name: Publish DB image
+    steps:
+    - publishImageConfig:
+        dockerfilePath: ./mariadb/Dockerfile
+        buildContext: .
+        tag: ${CICD_GIT_REPO_NAME}-db:${CICD_GIT_BRANCH}-${CICD_EXECUTION_SEQUENCE}
+
+  - name: deploy ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH} db
+    steps:
+    - applyYamlConfig:
+        path: ./mariadb/k8s-yaml/mariadb-deployment.yaml
+    - applyYamlConfig:
+        path: ./mariadb/k8s-yaml/mariadb-service.yaml
