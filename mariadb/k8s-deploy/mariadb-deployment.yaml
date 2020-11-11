@@ -29,3 +29,6 @@ spec:
         image: phpmyadmin:apache
         ports:
         - containerPort: 3306
+        env:
+        - name: PMA_HOST
+          value: 127.0.0.1
