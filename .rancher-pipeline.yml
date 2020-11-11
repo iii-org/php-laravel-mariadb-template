@@ -12,3 +12,19 @@ stages:
         path: ./mariadb/k8s-deploy/mariadb-deployment.yaml
     - applyYamlConfig:
         path: ./mariadb/k8s-deploy/mariadb-service.yaml
+
+  - name: Publish laravel image
+    steps:
+    - publishImageConfig:
+        dockerfilePath: ./Dockerfile
+        buildContext: .
+        tag: ${CICD_GIT_REPO_NAME}-web:${CICD_GIT_BRANCH}-${CICD_EXECUTION_SEQUENCE}
+      env:
+        PLUGIN_MTU: 1450
+
+  - name: deploy ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH} web
+    steps:
+    - applyYamlConfig:
+        path: ./laravel/k8s-yaml/laravel-deployment.yaml
+    - applyYamlConfig:
+        path: ./laravel/k8s-yaml/laravel-service.yaml
