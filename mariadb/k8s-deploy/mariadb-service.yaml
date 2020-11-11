@@ -9,6 +9,9 @@ spec:
   selector:
     app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
   ports:
+    - name: mariadb
+      protocol: TCP
+      port: 3306
     - name: phpmyadmin
       protocol: TCP
       port: 80
