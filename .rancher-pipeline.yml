@@ -16,7 +16,7 @@ stages:
   - name: Publish laravel image
     steps:
     - publishImageConfig:
-        dockerfilePath: ./Dockerfile
+        dockerfilePath: ./laravel/Dockerfile
         buildContext: .
         tag: ${CICD_GIT_REPO_NAME}-web:${CICD_GIT_BRANCH}-${CICD_EXECUTION_SEQUENCE}
       env:
