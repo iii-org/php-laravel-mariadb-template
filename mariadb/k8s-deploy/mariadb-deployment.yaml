@@ -25,8 +25,3 @@ spec:
             secretKeyRef:
               name: laravel-key
               key: MYSQL_ROOT_PASSWORD
-      containers:
-      - name: phpmyadmin
-        image: phpmyadmin:apache
-        ports:
-        - containerPort: 80
