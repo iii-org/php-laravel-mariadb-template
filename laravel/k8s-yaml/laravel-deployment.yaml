@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
+      app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-web
   template:
     metadata:
       labels:
-        app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
+        app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-web
     spec:
       imagePullSecrets:
       - name: pipeline-docker-registry

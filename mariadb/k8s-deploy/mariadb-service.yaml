@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-db-service
   labels:
-    app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
+    app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-db
 spec:
   type: NodePort
   selector:
-    app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
+    app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-db
   ports:
     - name: mariadb
       protocol: TCP

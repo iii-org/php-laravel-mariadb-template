@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
+      app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-db
   template:
     metadata:
       labels:
-        app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}
+        app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-db
     spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
@@ -28,7 +28,7 @@ spec:
       - name: phpmyadmin
         image: phpmyadmin:apache
         ports:
-        - containerPort: 3306
+        - containerPort: 80
         env:
         - name: PMA_HOST
           value: 127.0.0.1
