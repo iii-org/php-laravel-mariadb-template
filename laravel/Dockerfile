@@ -15,7 +15,4 @@ RUN npm install && npm run dev
 
 # Run service
 EXPOSE 80
-CMD tail -f /dev/null
-#CMD echo -e "DB_CONNECTION=mysql\nDB_HOST=$DB_HOST\nDB_PORT=$DB_PORT\nDB_DATABASE=$DB_DATABASE\nDB_USERNAME=$DB_USERNAME\nDB_PASSWORD=$DB_PASSWORD" >> .env && \
-#    php artisan migrate && \
-#    php artisan serve --port=80 --host=0.0.0.0 
+CMD echo -e "\nDB_CONNECTION=mysql\nDB_HOST=$DB_HOST\nDB_PORT=$DB_PORT\nDB_DATABASE=$DB_DATABASE\nDB_USERNAME=$DB_USERNAME\nDB_PASSWORD=$DB_PASSWORD" >> .env &&  php artisan serve --port=80 --host=0.0.0.0 
