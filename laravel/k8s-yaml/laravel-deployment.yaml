@@ -17,6 +17,7 @@ spec:
       containers:
       - name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-web
         image: ${CICD_IMAGE}:${CICD_GIT_BRANCH}-${CICD_EXECUTION_SEQUENCE}
+        command: ["sh", "-c", "tail -f /dev/null"]
         ports:
         - containerPort: 80
         env:
